@@ -3,12 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+import {  ScopedCssBaseline, Box,ThemeProvider, createTheme, makeStyles, CssBaseline } from '@mui/material';
 
+const themeDark = createTheme({
+  palette: {
+    mode: 'dark',
+  }
+  
+});
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
+  <ThemeProvider theme={themeDark}>
+    <CssBaseline/>
+  {/* <Box sx={{ height : 'inherit' ,backgroundColor: 'background.default' }}> */}
+  
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  {/* </Box> */}
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Paper } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
+import './App.css';
+import BusinessDetails from './views/BusinessDetails';
+const useStyles = makeStyles({
+  root :{
+    height: '100vh',
+
+  }
+})
 function App() {
+  const classes = useStyles()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Paper className={classes.root+ ' m-5 container'} elevation={20}>
+   
+    <BusinessDetails/>
+
+     </Paper> 
   );
 }
 
