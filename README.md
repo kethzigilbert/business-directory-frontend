@@ -2,7 +2,7 @@
 
 This Project contains a business place details page. It contains its name, address and opening hours. 
 
-
+This project is deployed using vercel  https://business-directory-places.vercel.app/ 
 
 
 ## Available Scripts to run in local
@@ -34,7 +34,6 @@ Utility functions can go inside this folder. Currently it contains utility file 
 ## API 
 
 The Business place details are fetched from API endpoint 'https://business-places-directory.herokuapp.com/places/${placeID}' 
-
 
 
 
