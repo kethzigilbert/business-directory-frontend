@@ -1,5 +1,6 @@
 import { Box, Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { QueryClient } from 'react-query';
 
 import './App.css';
 import BusinessDetails from './views/BusinessDetails';
@@ -9,9 +10,11 @@ const useStyles = makeStyles({
 
   }
 })
+
 function App() {
   const classes = useStyles()
   return (
+  
     <Paper className={classes.root+ ' m-5 container'} elevation={20}>
    
     <BusinessDetails/>

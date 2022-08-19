@@ -4,25 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
-import {  ScopedCssBaseline, Box,ThemeProvider, createTheme, makeStyles, CssBaseline } from '@mui/material';
+import {  ThemeProvider, createTheme, CssBaseline } from '@mui/material';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-const themeDark = createTheme({
+const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
   }
   
 });
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <ThemeProvider theme={themeDark}>
+  <ThemeProvider theme={theme}>
     <CssBaseline/>
-  {/* <Box sx={{ height : 'inherit' ,backgroundColor: 'background.default' }}> */}
+    <QueryClientProvider client={queryClient}>
   
   <React.StrictMode>
+
     <App />
   </React.StrictMode>
-  {/* </Box> */}
+  </QueryClientProvider>
+
   </ThemeProvider>
 );
 
