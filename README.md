@@ -2,7 +2,7 @@
 
 This Project contains a business place details page. It contains its name, address and opening hours. 
 
-This project is deployed using vercel  https://business-directory-places.vercel.app/ 
+This project is deployed using vercel and can be viewed at https://business-directory-places.vercel.app/ 
 
 
 ## Available Scripts to run in local
