@@ -60,16 +60,16 @@ const BusinessDetails = () => {
                         {openingTimings?.map((each) => {
                             const { label, values = [] } = each
                             return (
-                                <div className='d-flex flex-row'>
+                                <div key={label} className='d-flex flex-row'>
                                     <div className='col-8'>
                                         <Typography variant="body1" color="text.secondary" component="div">
                                             {label}
                                         </Typography>
                                     </div>
                                     <div className='d-flex flex-column col-4 '>
-                                        {values.map((each) =>
+                                        {values.map((each,index) =>
 
-                                            <Typography variant="body1" color="text.secondary" component="div">
+                                            <Typography key= {index} variant="body1" color="text.secondary" component="div">
                                                 {each}
                                             </Typography>
                                         )

@@ -1,6 +1,6 @@
-import { Box, Paper } from '@mui/material';
+import {  Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { QueryClient } from 'react-query';
+
 
 import './App.css';
 import BusinessDetails from './views/BusinessDetails';
