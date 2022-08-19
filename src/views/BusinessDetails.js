@@ -8,8 +8,11 @@ import { useQuery } from 'react-query';
 import groupOpeningHours from '../utils/group-opening-hours'
 import { useMemo } from 'react';
 import { Alert, CircularProgress } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { isEmpty } from 'lodash';
 const BusinessDetails = () => {
-    const placeId = 'ohGSnJtMIC5nPfYRi_HTAg';
+    const defaultplaceId = 'ohGSnJtMIC5nPfYRi_HTAg';
+    const {placeId = defaultplaceId} = useParams()
     const { isLoading, isError: isPlaceDetailsError, data: placeData = {} } = useQuery(
         ["PLACE_DETAILS", placeId],
         async () => {
@@ -18,9 +21,10 @@ const BusinessDetails = () => {
         }
         ,
         {
-            enabled: true,
+            enabled:   !isEmpty(placeId),
             retry: false,
-            refetchOnWindowFocus: false
+            refetchOnWindowFocus: false,
+          
         }
     );
 

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import {  ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -22,8 +23,8 @@ root.render(
     <QueryClientProvider client={queryClient}>
   
   <React.StrictMode>
-
-    <App />
+  <BrowserRouter> <App /></BrowserRouter>
+   
   </React.StrictMode>
   </QueryClientProvider>
 
