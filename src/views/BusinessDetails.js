@@ -10,7 +10,7 @@ import { useMemo } from 'react';
 import { Alert, CircularProgress } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
-import {isPlaceOpened} from '../utils/is-place-opened';
+import {getcloseOpenNearestTime, isPlaceOpened} from '../utils/is-place-opened';
 ;
 const BusinessDetails = () => {
     const defaultplaceId = 'ohGSnJtMIC5nPfYRi_HTAg';
@@ -39,6 +39,8 @@ const BusinessDetails = () => {
     
     const isOpened = useMemo(()=>isPlaceOpened(days),[days])
 
+    const closeOpenNearestTime = useMemo(()=> getcloseOpenNearestTime(days) ,[days])
+
     return (
         <>
         {isLoading && <div className='d-flex flex-row justify-content-center align-items-center h-100'><CircularProgress/></div>}
@@ -56,6 +58,7 @@ const BusinessDetails = () => {
                     { <div className='col-3'>{isOpened ? <Alert variant="outlined" icon={false} severity="success">
   Open </Alert> : <Alert icon={false}   severity="error"> Closed </Alert>} </div>}
                 </CardContent>
+                {isOpened ? `Closing at ${closeOpenNearestTime}`  : `Opening at ${closeOpenNearestTime}`}
 
             </Card>
             <Card variant="outlined" className="col-sm-12 col-md-5 col-12 col-lg-5">
