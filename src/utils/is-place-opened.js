@@ -16,15 +16,16 @@ export const isPlaceOpened =(days)=>{
     const currentdaydata = groupedOpeningHours[mapDayToWeek[todaysDay]]
     let isOpened = false
     if(!!currentdaydata?.value){
-        currentdaydata?.value?.forEach((each)=>{
+       isOpened= !!currentdaydata?.value?.find((each)=>{
             const {start,end} = each 
             const splitStart = start?.split(':')
             const splitEnd = end?.split(':')
             const startDate = (new Date(todaysDate)).setHours(splitStart[0] , splitStart[1],0)
             const endDate = (new Date(todaysDate)).setHours(splitEnd[0], splitEnd[1] , 0)
             
-            if(todaysDate>=startDate && todaysDate<=endDate)
-            isOpened = true
+            return todaysDate>=startDate && todaysDate<=endDate
+           
+            
 
         })
     }
