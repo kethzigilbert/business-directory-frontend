@@ -1,7 +1,7 @@
 import { isEmpty } from "lodash";
 import isEqual from "lodash/isEqual"
 
-const initializeOpeningDaysData = (days) => {
+ export const initializeOpeningDaysData = (days) => {
 
   let initialDaysData = {};
   ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].forEach((eachDay, index) => {
@@ -76,12 +76,16 @@ const improveLabels = (groupedDays) => {
   }))
 
 }
-const groupOpeningHours = (days = {}) => {
+
+
+export const groupOpeningHours = (days = {}) => {
   const initialDaysData = initializeOpeningDaysData(days)
   const groupedDays = groupSimiliarOpenedDays(initialDaysData)
   const groupedOpeningHours = improveLabels(groupedDays)
+
   return groupedOpeningHours;
 }
 
 
-export default groupOpeningHours;
+
+

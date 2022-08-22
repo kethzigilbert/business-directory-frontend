@@ -5,11 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { PlacesService } from '../api';
 import { useQuery } from 'react-query';
-import groupOpeningHours from '../utils/group-opening-hours'
+import {groupOpeningHours} from '../utils/group-opening-hours'
 import { useMemo } from 'react';
 import { Alert, CircularProgress } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
+import {isPlaceOpened} from '../utils/is-place-opened';
+;
 const BusinessDetails = () => {
     const defaultplaceId = 'ohGSnJtMIC5nPfYRi_HTAg';
     const {placeId = defaultplaceId} = useParams()
@@ -35,7 +37,7 @@ const BusinessDetails = () => {
 
     const openingTimings = useMemo(() => groupOpeningHours(days), [days])
     
-
+    const isOpened = useMemo(()=>isPlaceOpened(days),[days])
 
     return (
         <>
@@ -51,6 +53,8 @@ const BusinessDetails = () => {
                     <Typography color="text.secondary" gutterBottom>
                         {address}
                     </Typography>
+                    { <div className='col-3'>{isOpened ? <Alert variant="outlined" icon={false} severity="success">
+  Open </Alert> : <Alert icon={false}   severity="error"> Closed </Alert>} </div>}
                 </CardContent>
 
             </Card>
